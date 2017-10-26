@@ -11,6 +11,16 @@ mysql:
         - MYSQL_ROOT_HOST=%
     #    - MYSQL_DATABASE=demo
     restart: always
+  
+redis:
+    image: redis:4.0.2
+    container_name: redis
+    ports:
+        - 6379:6379
+    volumes:
+        - ./redis/redis.conf:/etc/redis/redis.conf
+    command: redis-server /etc/redis/redis.conf
+    restart: always
 
 django:
     image: registry.cn-hangzhou.aliyuncs.com/jerrygaoyang/django
@@ -23,7 +33,7 @@ django:
     restart: always
     
 nginx: 
-    image: nginx
+    image: nginx:1.13.5
     ports:
         - 80:80
         - 433:433
