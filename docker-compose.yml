@@ -11,6 +11,17 @@ mysql:
         - MYSQL_ROOT_HOST=%
     #    - MYSQL_DATABASE=demo
     restart: always
+    
+mongo:
+    image: mongo:3.4.10
+    container_name: mongo
+    ports:
+        - 27017:27017
+    environment:
+        - MONGO_INITDB_ROOT_USERNAME=root
+        - MONGO_INITDB_ROOT_PASSWORD=root
+        #- MONGO_INITDB_DATABASE=container
+    restart: always
   
 redis:
     image: redis:4.0.2
@@ -26,6 +37,7 @@ django:
     image: registry.cn-hangzhou.aliyuncs.com/jerrygaoyang/django
     ports:
         - 9001:9001
+        - 3000:3000
     container_name: django
     volumes:
         - ./projects:/mnt
