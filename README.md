@@ -8,6 +8,10 @@
 
 > docker-compose up -d
 
+### 注意
+* redis 默认密码为 root
+* 在 ./redis/redis.conf 搜索 requirepass root , 将 root 更改为你自己的密码
+
 ### 备注
 * docker 镜像源: http://aad0405c.m.daocloud.io/
 * linux下更改docker镜像源
