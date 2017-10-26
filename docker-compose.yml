@@ -45,7 +45,7 @@ nginx:
 phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: phpmyadmin
-    external_links:
+    links:
         - mysql:db
     ports:
         - 8000:80
