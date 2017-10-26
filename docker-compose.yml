@@ -1,0 +1,45 @@
+mysql:
+    image: mysql:5.7.20
+    container_name: mysql
+    ports:
+        - 3306:3306
+    volumes:
+    #    - ./mysql/data:/var/lib/mysql
+        - ./mysql/mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf
+    environment:
+        - MYSQL_ROOT_PASSWORD=root
+        - MYSQL_ROOT_HOST=%
+    #    - MYSQL_DATABASE=demo
+    restart: always
+
+django:
+    image: registry.cn-hangzhou.aliyuncs.com/jerrygaoyang/django
+    ports:
+        - 9001:9001
+    container_name: django
+    volumes:
+        - ./projects:/mnt
+        - ./supervisor/supervisord.conf:/etc/supervisord.conf
+    restart: always
+    
+nginx: 
+    image: nginx
+    ports:
+        - 80:80
+        - 433:433
+    container_name: nginx
+    volumes:
+        - ./nginx:/etc/nginx/conf.d
+    restart: always
+    
+phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    external_links:
+        - mysql:db
+    ports:
+        - 8000:80
+    environment:
+        - PMA_HOST=db
+        - PMA_PORT=3306
+    restart: always
