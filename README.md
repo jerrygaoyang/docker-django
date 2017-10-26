@@ -4,7 +4,7 @@
 > git clone https://github.com/JerryGaoyang/docker-python.git
 
 ### 拉取镜像并启动容器
-> cd docker
+> cd docker-python
 
 > docker-compose up -d
 
