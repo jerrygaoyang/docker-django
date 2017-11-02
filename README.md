@@ -1,7 +1,7 @@
 # docker-compose 构建django web环境
 
 ### 下载 docker-compose.yml 等配置文件
-> git clone https://github.com/JerryGaoyang/docker-python.git
+> git clone https://github.com/JerryGaoyang/docker-django.git
 
 ### 拉取镜像并启动容器
 > cd docker-python
