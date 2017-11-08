@@ -4,7 +4,7 @@
 > git clone https://github.com/JerryGaoyang/docker-django.git
 
 ### 拉取镜像并启动容器
-> cd docker-python
+> cd docker-django
 
 > docker-compose up -d
 
