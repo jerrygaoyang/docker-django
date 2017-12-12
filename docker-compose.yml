@@ -4,25 +4,12 @@ mysql:
     ports:
         - "3306:3306"
     volumes:
-    #    - ./mysql/data:/var/lib/mysql
         - ./mysql/mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf
     environment:
-        - MYSQL_ROOT_PASSWORD=root
+        - MYSQL_ROOT_PASSWORD=mysql@2017
         - MYSQL_ROOT_HOST=%
-    #    - MYSQL_DATABASE=demo
     restart: always
     
-mongo:
-    image: mongo:3.4.10
-    container_name: mongo
-    ports:
-        - "27017:27017"
-    environment:
-        - MONGO_INITDB_ROOT_USERNAME=root
-        - MONGO_INITDB_ROOT_PASSWORD=root
-        #- MONGO_INITDB_DATABASE=container
-    restart: always
-  
 redis:
     image: redis:4.0.2
     container_name: redis
@@ -40,7 +27,7 @@ django:
         - "3000:3000"
     container_name: django
     volumes:
-        - ./projects:/opt
+        - ./projects:/opt/projects
         - ./supervisor/supervisord.conf:/etc/supervisord.conf
     restart: always
     
