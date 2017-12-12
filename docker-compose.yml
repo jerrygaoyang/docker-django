@@ -6,7 +6,7 @@ mysql:
     volumes:
         - ./mysql/mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf
     environment:
-        - MYSQL_ROOT_PASSWORD=mysql@2017
+        - MYSQL_ROOT_PASSWORD=root
         - MYSQL_ROOT_HOST=%
     restart: always
     
