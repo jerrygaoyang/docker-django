@@ -38,7 +38,7 @@ nginx:
         - 433:433
     container_name: nginx
     volumes:
-        - ./nginx:/etc/nginx/conf.d
+        - ./nginx:/etc/nginx/sites-enabled
     restart: always
     
 phpmyadmin:
