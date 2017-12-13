@@ -34,8 +34,8 @@ django:
 nginx: 
     image: nginx:1.13.5
     ports:
-        - 80:80
-        - 433:433
+        - "80:80"
+        - "433:433"
     container_name: nginx
     volumes:
         - ./nginx:/etc/nginx/sites-enabled
@@ -47,7 +47,7 @@ phpmyadmin:
     links:
         - mysql:db
     ports:
-        - 8000:80
+        - "8000:80"
     environment:
         - PMA_HOST=db
         - PMA_PORT=3306
